@@ -1,22 +1,18 @@
 (function($){
 	var applicationView = Backbone.View.extend({
-		template: _.template($('#calender-template').html()),
-		el: $('body'), 
+		template: _.template( $('#app_template').html()),
+		el: $('body'),
 		
 		initialize: function(){
-			_.bindAll(this, 'render'); 
-			
-			this.header = this.$('#header');
-			this.main = $('#main');
-			this.nav = $('#nav');
-			
-			this.render(); 
+			_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
+
+			this.render(); // not all views are self-rendering. This one is.
 		},
-		
+		// `render()`: Function in charge of rendering the entire view in `this.el`. Needs to be manually called by the user.
 		render: function(){
-			this.$el.html(this.template(this.model.toJSON()));
-			return this;
+			$(this.el).append("<ul> <li> Welcome </li> </ul>");
 		}
 	});
+
 	var applicationView = new applicationView();
-});
+})(jQuery);
