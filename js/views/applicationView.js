@@ -1,18 +1,26 @@
-(function($){
-	var applicationView = Backbone.View.extend({
+(function(app){
+    'use strict';
+
+	 var ApplicationView = Backbone.View.extend({
+        tagName: 'section',
+         el: $('#app'),
 		template: _.template( $('#app_template').html()),
-		el: $('body'),
 		
 		initialize: function(){
-			_.bindAll(this, 'render'); // fixes loss of context for 'this' within methods
+            console.log("application View is created.");
 
-			this.render(); // not all views are self-rendering. This one is.
+			this.render();
 		},
-		// `render()`: Function in charge of rendering the entire view in `this.el`. Needs to be manually called by the user.
-		render: function(){
-			$(this.el).append("<ul> <li> Welcome </li> </ul>");
-		}
-	});
 
-	var applicationView = new applicationView();
+		render: function(){
+			this.$el.html(this.template());
+
+            return this;
+		},
+
+        setContentSubview: function(view){
+            this.setSubview('content', view);
+
+        }
+	});
 })(jQuery);

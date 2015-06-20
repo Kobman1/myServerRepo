@@ -7,10 +7,64 @@
         <link rel="stylesheet" href="css/style.css" type="text/css">
     </head>
 	
-    <body> 		
+    <body class="app">
+	    <div id="app">
+            Es ist kein JavaScript aktiviert
+        </div>
+
 		<!-- templates -->
 		<script type="text/template" id="app_template">
-			Geht net ...
+            <!-- navbar wrapper -->
+            <div class="navbar-wrapper">
+                <div class="navbar-left-out">
+
+                </div>
+
+                <div class="navbar-top-content">
+                    <a href="/"><div class="navbar-button-brand navbar-button-float-left"><img src="/res/Brand.png" class ="brand"></div></a>
+                    <a href="/"><div class="navbar-button navbar-button-float-left"><p class="navbar-button-text" data-i18n="nav.home"></p></div></a>
+                    <a href="/photography"><div class="navbar-button navbar-button-float-left"><p class="navbar-button-text" data-i18n="nav.photography"></p></div></a>
+                    <a href="/development"><div class="navbar-button"><p class="navbar-button-text" data-i18n="nav.development"></p></div></a>
+                </div>
+
+                <div class="navbar-right-out">
+                    <!-- clock -->
+                    <div id="en" class="lang-op"><p class="navbar-button-text">EN</p></div>
+                    <div id="de" class="lang-op"><p class="navbar-button-text">DE</p></div>
+                </div>
+            </div>
+
+
+            <!-- Sidebar Left -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="active-doc">
+                        <a href="/etherpad">
+                            <span class="glyphicon glyphicon-picture"></span>
+                            <span id="etherpad" style="margin-left: 5px;">Etherpad</span>
+                        </a>
+
+                        <a href="/GitHub">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span style="margin-left: 5px;">GitHub</span>
+                        </a>
+
+                        <a href="/Spotify">
+                            <span class="glyphicon glyphicon-music"></span>
+                            <span style="margin-left: 5px;">Spotify</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="content">
+                <div id="post-content" class="wrapper">
+                </div>
+                <div id="footer" class="footer">
+                    <p id="copyright" align="center"><span class="text"> Copyright © 2015 by Tobias Franz. All rights reserved. </span></p>
+                    <p align="center"><a href="/impressum">Impressum</a></p>
+                </div>
+            </div>
 		</script>
 		
 		<script type="text/template" id="header_template">
@@ -20,7 +74,7 @@
 			</div>
 		</script>
 
-		<script type="text/template" id="header_template">
+		<script type="text/template" id="clock_template">
 			<div id="nav"> 	
 				<div id="clock" class="clock">Here should be the clock. </div>
 				<h2>Navigation:</h2>
@@ -37,12 +91,28 @@
 					style=" border:solid 1px #777 " width="800" height="800" frameborder="0" scrolling="no"></iframe>
 			</div>
 		</script>
-				
-		<!-- libs -->
-		<script src="js/jquery-1.11.1.js"></script>
-		<script src="js/underscore.js"></script>
-		<script src="js/backbone-min.js"></script>
-		<!-- js -->
-		<script src='js/views/applicationView.js'></script>
+
+        <!-- libs -->
+        <script src="js/jquery-1.11.1.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/backbone-min.js"></script>
+        <!-- js -->
+        <script src='js/views/ApplicationView.js'></script>
+        <script src='js/models/Application.js'></script>
+        <script src='js/models/User.js'></script>
+
+        <script>
+            var app = {};
+
+            app.appModel = new home.Application({
+                user: new home.User()
+            });
+
+            var mainView = new home.ApplicationView({
+                model: app.appModel,
+                el: '#app'
+            }).render();
+
+        </script>
     </body>
 </html>
