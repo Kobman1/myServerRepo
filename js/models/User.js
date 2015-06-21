@@ -1,10 +1,12 @@
 /**
  * Created by Tobias on 20.06.2015.
  */
-(function(app){
+var home = home || {};
+
+(function(home){
     'use strict';
 
-    var User = Backbone.Model.extend({
+    home.User = Backbone.Model.extend({
         defaults:{
             id:null,
             firstName: 'Tobias',
@@ -14,7 +16,7 @@
         },
 
         initialize: function(){
-            console.log("I live ...");
+
         }
     })
-})(jQuery);
+})(home);

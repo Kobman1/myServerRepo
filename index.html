@@ -17,20 +17,14 @@
             <!-- navbar wrapper -->
             <div class="navbar-wrapper">
                 <div class="navbar-left-out">
-
                 </div>
 
                 <div class="navbar-top-content">
-                    <a href="/"><div class="navbar-button-brand navbar-button-float-left"><img src="/res/Brand.png" class ="brand"></div></a>
-                    <a href="/"><div class="navbar-button navbar-button-float-left"><p class="navbar-button-text" data-i18n="nav.home"></p></div></a>
-                    <a href="/photography"><div class="navbar-button navbar-button-float-left"><p class="navbar-button-text" data-i18n="nav.photography"></p></div></a>
-                    <a href="/development"><div class="navbar-button"><p class="navbar-button-text" data-i18n="nav.development"></p></div></a>
+                    <h1> Herzlich Willkommen </h1>
                 </div>
 
                 <div class="navbar-right-out">
-                    <!-- clock -->
-                    <div id="en" class="lang-op"><p class="navbar-button-text">EN</p></div>
-                    <div id="de" class="lang-op"><p class="navbar-button-text">DE</p></div>
+                    <div id="clock">Here should be the clock</div>
                 </div>
             </div>
 
@@ -40,18 +34,27 @@
                 <ul class="sidebar-nav">
                     <li class="active-doc">
                         <a href="/etherpad">
-                            <span class="glyphicon glyphicon-picture"></span>
-                            <span id="etherpad" style="margin-left: 5px;">Etherpad</span>
+                            <span style="margin-left: 5px;">Etherpad</span>
                         </a>
 
                         <a href="/GitHub">
-                            <span class="glyphicon glyphicon-user"></span>
                             <span style="margin-left: 5px;">GitHub</span>
                         </a>
 
                         <a href="/Spotify">
-                            <span class="glyphicon glyphicon-music"></span>
                             <span style="margin-left: 5px;">Spotify</span>
+                        </a>
+
+                        <a href="/ownCloud">
+                            <span style="margin-left: 5px;">ownCloud</span>
+                        </a>
+
+                        <a href="/calender">
+                            <span style="margin-left: 5px;">Kalender</span>
+                        </a>
+
+                        <a href="/guestbook">
+                            <span style="margin-left: 5px;">Gästebuch</span>
                         </a>
                     </li>
                 </ul>
@@ -59,9 +62,9 @@
 
             <div id="content">
                 <div id="post-content" class="wrapper">
+
                 </div>
                 <div id="footer" class="footer">
-                    <p id="copyright" align="center"><span class="text"> Copyright © 2015 by Tobias Franz. All rights reserved. </span></p>
                     <p align="center"><a href="/impressum">Impressum</a></p>
                 </div>
             </div>
@@ -98,6 +101,7 @@
         <script src="js/backbone-min.js"></script>
         <!-- js -->
         <script src='js/views/ApplicationView.js'></script>
+        <script src='js/views/ClockView.js'></script>
         <script src='js/models/Application.js'></script>
         <script src='js/models/User.js'></script>
 

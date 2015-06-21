@@ -1,14 +1,15 @@
+var home = home || {};
+
 (function(app){
+
     'use strict';
 
-	 var ApplicationView = Backbone.View.extend({
+	 home.ApplicationView = Backbone.View.extend({
         tagName: 'section',
          el: $('#app'),
 		template: _.template( $('#app_template').html()),
 		
 		initialize: function(){
-            console.log("application View is created.");
-
 			this.render();
 		},
 
@@ -23,4 +24,4 @@
 
         }
 	});
-})(jQuery);
+})(home);
